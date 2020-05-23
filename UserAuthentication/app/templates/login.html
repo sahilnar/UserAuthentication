@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Log In</h3>
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{field.label_tag}}
+                                {% render_field field class='form-control' %}
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    Not Registered Yet ? <a href="{% url 'signup' %}">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

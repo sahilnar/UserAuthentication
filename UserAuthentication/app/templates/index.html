@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="welcome">
+    <h1>Welcome {{user.username}}</h1>
+</div>
+{% else %}
+<div class="main">
+    <h2 class="card-title text-center">Welcome to UserAuthentication</h2>
+        <div class="login">
+            <a href="{% url 'login' %}" class="btn btn-primary w-50">Login</a>
+        </div>
+        <br>
+        <div class="signup">
+            <a href="{% url 'signup' %}" class="btn btn-primary w-50">Signup</a>
+        </div>
+</div>
+{% endif %}
+
+{% endblock %}
